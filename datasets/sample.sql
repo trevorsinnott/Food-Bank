@@ -2,46 +2,27 @@ BEGIN TRANSACTION;
 CREATE TABLE "Account" (
 	id INTEGER NOT NULL, 
 	"Name" VARCHAR(255), 
-	"Description" VARCHAR(255), 
-	"BillingStreet" VARCHAR(255), 
-	"BillingCity" VARCHAR(255), 
-	"BillingState" VARCHAR(255), 
-	"BillingPostalCode" VARCHAR(255), 
-	"BillingCountry" VARCHAR(255), 
-	"ShippingStreet" VARCHAR(255), 
-	"ShippingCity" VARCHAR(255), 
-	"ShippingState" VARCHAR(255), 
-	"ShippingPostalCode" VARCHAR(255), 
-	"ShippingCountry" VARCHAR(255), 
-	"Phone" VARCHAR(255), 
-	"Fax" VARCHAR(255), 
-	"Website" VARCHAR(255), 
-	"NumberOfEmployees" VARCHAR(255), 
-	"AccountNumber" VARCHAR(255), 
-	"Site" VARCHAR(255), 
-	"Type" VARCHAR(255), 
+	"ParentId" VARCHAR(255), 
 	PRIMARY KEY (id)
 );
-INSERT INTO "Account" VALUES(1,'エンタイトルメントの取引先のサンプル','','','','','','','','','','','','','','','','','','');
-INSERT INTO "Account" VALUES(2,'Demo Account','This is a demo account','','','','','','','','','','','123-1234-1234','','www.demoaccount.com','67','1','','Prospect');
-CREATE TABLE "Contact" (
+INSERT INTO "Account" VALUES(1,'エンタイトルメントの取引先のサンプル','');
+INSERT INTO "Account" VALUES(2,'Demo Account','');
+CREATE TABLE "Delivery_Item__c" (
 	id INTEGER NOT NULL, 
-	"Salutation" VARCHAR(255), 
-	"FirstName" VARCHAR(255), 
-	"LastName" VARCHAR(255), 
-	"Email" VARCHAR(255), 
-	"Phone" VARCHAR(255), 
-	"MobilePhone" VARCHAR(255), 
-	"OtherPhone" VARCHAR(255), 
-	"HomePhone" VARCHAR(255), 
-	"Title" VARCHAR(255), 
-	"Birthdate" VARCHAR(255), 
-	"MailingStreet" VARCHAR(255), 
-	"MailingCity" VARCHAR(255), 
-	"MailingState" VARCHAR(255), 
-	"MailingPostalCode" VARCHAR(255), 
-	"MailingCountry" VARCHAR(255), 
-	"AccountId" VARCHAR(255), 
+	"Food_Expiration_Date__c" VARCHAR(255), 
+	"Food_Storage__c" VARCHAR(255), 
+	"Name" VARCHAR(255), 
+	"Delivery__c" VARCHAR(255), 
 	PRIMARY KEY (id)
 );
+INSERT INTO "Delivery_Item__c" VALUES(1,'2021-06-09','Refrigerated','Milk','1');
+INSERT INTO "Delivery_Item__c" VALUES(2,'2021-08-31','Refrigerated','Cheese','1');
+CREATE TABLE "Delivery__c" (
+	id INTEGER NOT NULL, 
+	"Scheduled_Date__c" VARCHAR(255), 
+	"Status__c" VARCHAR(255), 
+	"Supplier__c" VARCHAR(255), 
+	PRIMARY KEY (id)
+);
+INSERT INTO "Delivery__c" VALUES(1,'2021-05-28T03:00:00.000+0000','Requested','2');
 COMMIT;
